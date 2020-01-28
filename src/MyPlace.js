@@ -3,8 +3,20 @@ import { Map } from './UI/Map';
 class LoadedPlace {
   constructor(coordinates, address) {
     new Map(coordinates);
+    this.setShareNewPlaceLink();
     const headerTitleEl = document.querySelector('.header__title');
     headerTitleEl.textContent = address;
+  }
+
+  setShareNewPlaceLink() {
+    const shareNewPlaceLink = document.getElementById('shareNewPlaceLink');
+
+    const currentUrl = origin.href;
+    const newUrl = currentUrl
+      .split('/')
+      .slice(0, -2)
+      .join('/');
+    shareNewPlaceLink.href = newUrl;
   }
 }
 
