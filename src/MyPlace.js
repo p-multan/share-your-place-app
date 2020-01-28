@@ -11,7 +11,7 @@ class LoadedPlace {
   setShareNewPlaceLink() {
     const shareNewPlaceLink = document.getElementById('shareNewPlaceLink');
 
-    const currentUrl = origin.href;
+    const currentUrl = location.href;
     const newUrl = currentUrl
       .split('/')
       .slice(0, -2)
