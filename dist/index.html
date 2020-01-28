@@ -4,32 +4,61 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge" />
-    <title>Share Places APP</title>
+    <title>Share a Place</title>
     <link
       href="https://fonts.googleapis.com/css?family=Roboto:400,700&display=swap&subset=latin-ext"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../assets/styles/app.css" />
-    <link rel="stylesheet" href="../assets/styles/my-place.css" />
-    <script src="../assets/scripts/MyPlace.js" defer></script>
+    <link rel="stylesheet" href="assets/styles/app.css" />
+    <link rel="stylesheet" href="assets/styles/share-place.css" />
+    <script
+      src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBARCnssY3RwAwY-LnzsqThn77pJggsNWE"
+      defer
+    ></script>
+    <script src="assets/scripts/SharePlace.js" defer></script>
   </head>
   <body>
+    <template id="modal-template">
+      <div class="backdrop"></div>
+      <div class="modal"></div>
+    </template>
+    <template id="loading-modal-content">
+      <div class="modal__content centered">
+        <div class="spinner"></div>
+      </div>
+    </template>
+
     <header class="header">
-      <h1 class="header__title"></h1>
+      <h1 class="header__title">Share your places!</h1>
     </header>
 
-    <section class="intro">
-      <p class="intro__text">
-        You can see shared place below!
-      </p>
-    </section>
-
     <section class="selected-place">
-      <div id="map" class="selected-place__map"></div>
+      <div id="map" class="selected-place__map">
+        <p class="selected-place__info">
+          No place has been selected yet. Enter an address below, or use your
+          geolocation!
+        </p>
+      </div>
     </section>
 
     <section class="share-controls">
-      <a href="/" class="share-controls__link">Share a New Place!</a>
+      <input
+        id="share-link"
+        class="input"
+        type="text"
+        readonly
+        value="Select a place to get a link to share."
+      />
+      <button class="btn" id="share-btn" disabled>Share This Place</button>
+    </section>
+
+    <section id="place-data">
+      <form id="address-form">
+        <label for="address" class="label">Address</label>
+        <input id="addressInput" class="input" type="text" />
+        <button class="btn" type="submit">Find Place</button>
+      </form>
+      <button class="btn" id="locate-btn">Use Current Location</button>
     </section>
   </body>
 </html>
