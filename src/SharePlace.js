@@ -45,8 +45,8 @@ class PlaceFinder {
 
     this.shareBtn.disabled = false;
     this.sharedLinkInputElement.value = `${
-      location.origin
-    }/my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${
+      location.href
+    }my-place?address=${encodeURI(address)}&lat=${coordinates.lat}&lng=${
       coordinates.lng
     }`;
   }
